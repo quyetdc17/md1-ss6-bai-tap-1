@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI tinh can nang</title>
+</head>
+<body>
+<label for="weight">Enter Weight: </label>
+<input id="weight" type="number"><br><br>
+<label for="height">Enter Height: </label>
+<input id="height" type="number"><br>
+<br>
+<button type="submit" id="submit" onclick="goCalculation();">Index Calculation</button>
+<div id="result">
+    Your BMI is
+</div>
+<p id="assess"></p>
+<script>
+    function goCalculation(){
+        let weight = document.getElementById('weight').value;
+        //console.log(weight)
+        let height = document.getElementById('height').value;
+        let bmi = weight/(height*height);
+        //console.log(bmi)
+        document.getElementById('result').innerHTML += bmi;
+        if (bmi < 18) {
+            document.getElementById('assess').innerHTML = "Underweight";
+        } else if (bmi < 25.0) {
+            document.getElementById('assess').innerHTML = "Normal";
+        } else if (bmi < 30.0) {
+            document.getElementById('assess').innerHTML = "Overweight";
+        } else {
+            document.getElementById('assess').innerHTML = "Obese";
+        }
+    }
+</script>
+</body>
+</html>
